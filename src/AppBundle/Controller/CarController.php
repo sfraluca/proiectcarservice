@@ -19,7 +19,7 @@ class CarController extends Controller
      * @Route("/car/", name="back")
      */
     public function productAction(Request $request) {
-        // replace this example code with whatever you need
+       
         $car = $this->getDoctrine()
                 ->getRepository('AppBundle:Car')
                 ->findAll();
@@ -28,14 +28,13 @@ class CarController extends Controller
     }
 
         /**
-
-     * @Route("/car/add")
-     */
+       * @Route("/car/add")
+       */
         public function addServiceAction(Request $request)
     {
         $car = new Car();
         $car->setPlateNumber('Write a plate number');
-        $car->setBrand('Write a price');
+        $car->setBrand('Write a brand');
         $car->setModel('Write a model');
         $car->setYear('Write an year');
         $car->setColor('Write a color');
@@ -78,40 +77,34 @@ class CarController extends Controller
         return $this->render('default/addcar.html.twig', array('form' => $form->createView(),));
 }
     /**
-     * @Route("/car/upload")
+     * @Route("/")
      */
-      public function UploadAction(Request $request)
+      public function uploadAction(Request $request)
     {
         $image = new Image();
         $form = $this->createForm(ImageType::class, $image);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // $file stores the uploaded PDF file
+      
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $image->getImage();
 
-            // Generate a unique name for the file before saving it
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
-            // Move the file to the directory where brochures are stored
+           
             $file->move(
                 $this->getParameter('web'),
                 $fileName
             );
 
-            // Update the 'brochure' property to store the PDF file name
-            // instead of its contents
             $image->setImage($fileName);
-           
-           //save in data
+        
            
             $em=$this->getDoctrine()->getManager();
             $em->persist($image);
             $em->flush();
-            // ... persist the $product variable or any other work
-
-           // Redirectioneaza catre /car/check/{imageId}
+       
            return $this->redirectToRoute('check', array('imageId'=>$image->getId()));
         }
 
@@ -137,7 +130,7 @@ class CarController extends Controller
         $imageName = $image->getImage();
         $imagePath = 'D:\xampp\xampp\htdocs\car-service-master\web\uploads\images\\' .$imageName;
         
-//        $imageContent = file_get_contents($imagePath);
+
         
         $res = $client->request('POST', $apiUrl, [
             'multipart' => [
@@ -150,23 +143,16 @@ class CarController extends Controller
         );
    
 
-//        echo $res->getStatusCode();
-
-        // "200"
-//        echo $res->getHeader('content-type');
-        // 'application/json; charset=utf8'
         $responseArray = json_decode($res->getBody(), true);
         $responseResultArray = $responseArray["results"][0];
         $plateNumber = $responseResultArray["plate"];
 
         $url = "/car/service/?nr=$plateNumber";
         return $this->redirect($url);
-//        return $this->render('default/check.html.twig');
+
 
     }
-   //return $this->render('default/addcar.html.twig', array(
-   //        'form' => $form->createView(),
-   //    ));
+ 
 
  }
         

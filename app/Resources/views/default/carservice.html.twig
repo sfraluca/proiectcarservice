@@ -21,7 +21,6 @@
 .button2:hover {
     box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
-
 a:link, a:visited {
    color:white;
    text-decoration: none;
@@ -31,42 +30,39 @@ table {
     width: 90%;
     margin-left:50px;
 }
-
 th, td {
     text-align: left;
-    padding: 10px;
-    
+    padding: 10px;  
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){
+background-color: #f2f2f2;
+}
 
 th {
     background-color: #af4c4c;
-    color: white;
-    
+    color: white;  
 }
 .ds{
-width:60%;
+    width:60%;
 }
 .div{
-text-align:center;
-font-size: 50px;
-font-family:Verdana;
-text-shadow: 2px 2px 5px red;
-padding:5px;
-margin-bottom:5px;
-color:#7a3535;
+    text-align:center;
+    font-size: 50px;
+    font-family:Verdana;
+    text-shadow: 2px 2px 5px red;
+    padding:5px;
+    margin-bottom:5px;
+    color:#7a3535;
 }
 {% endblock %}
 {% block body %}
 
-<html>
-    <head>
-           
-
-   </head>
-   <body>
    <div class="div">Car Service</div>
+     {% for key in Car %}
+            Service for this plateNamber:
+            {{ key.plateNumber }}
+             {% endfor %}
  <table >
   <tr>
     <th>Id</th>
@@ -83,13 +79,10 @@ color:#7a3535;
     <td class="ds">{{ key.description }}</td>
     <td>{{ key.serviceDate|date('Y-m-d H-i-s') }}</td>
   </tr>
+  
   {% endfor %}
  
  </table>
-  <button class="button button2"><a href="/car">Back Home</a></button>
-  
-   </body>
-   
-</html>
-
+<button class="button button2 button1"><a href="/car/service/add/?nr={{key.plateNumber}}">Add Service</a></button></th> 
+  <button class="button button2"><a href="/car">Car List</a></button>
 {% endblock %}

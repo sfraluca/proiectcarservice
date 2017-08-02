@@ -25,27 +25,6 @@ class CarServiceController extends Controller {
                 ->findAllServicesByCarPlateNumber($carPlateNumber);
         return $this->render('default/carservice.html.twig', array('viewServices' => $carServices));
 
-
-//        $car = $this->getDoctrine()
-//                    ->getRepository('AppBundle:Car')
-//                    ->findOneByPlateNumber($carPlateNumber);
-//        $carServices = $car->getCarServices();       
-//        $carServices = $this->getDoctrine()
-//                            ->getRepository('AppBundle:CarService')
-//                            ->findByCar($car);
-//        dump($carServices);
-//        exit;
-//        $car = $car_serviceId->getCarService();
-//        return new Response(
-//          '<html><body> Service id: '
-//          . ''.$car_service->getId().'<br> Title: '
-//          . ''.$car_service->getTitle().'<br> Price '
-//          . ''.$car_service->getPrice().'<br> Description: '
-//          . ''.$car_service->getDescription().'<br> Service date'
-//          . ''.$car_service->getServiceDate().'<br>'
-//          . ' belongs to: '
-//          . ''.$car->getPlateNumber().'</body></html>'
-//          );
     }
 
     /**

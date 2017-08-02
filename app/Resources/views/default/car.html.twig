@@ -1,33 +1,23 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}CarService{% endblock %}
 {% block style %}
-
 table {
     border-collapse: collapse;
 width: 90%;
     margin-left:50px;
 }
-
 th, td {
     text-align: left;
-    padding: 7px;
-    
+    padding: 7px;  
 }
-
 tr:nth-child(even){background-color: #f2f2f2;}
-
 th {
     background-color: #af4c4c;
-    color: white;
-    
+    color: white;   
 }
 .button2:hover {
-
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-
 }
-
 a:link, a:visited {
    color:white;
    text-decoration: none;
@@ -45,55 +35,41 @@ a:link, a:visited {
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-
     border-radius:5px;
     margin-left:25%;
-   
-
-    border-radius:10px;
-    margin-left:50px;
-
-    border-radius:10px;
-    margin-left:50px;
-
-    border-radius:10px;
-    margin-left:50px;
-
 }
 .div{
-text-align:center;
-font-size: 50px;
-font-family:Verdana;
-text-shadow: 2px 2px 5px red;
-padding:5px;
-margin-bottom:5px;
-color:#7a3535;
+    text-align:center;
+    font-size: 50px;
+    font-family:Verdana;
+    text-shadow: 2px 2px 5px red;
+    padding:5px;
+    margin-bottom:5px;
+    color:#7a3535;
 }
 .button1{
-margin-left:2px;
+    margin-left:2px;
 }
 .th{
-background-color: #f2f2f2;
-color: white;
+    background-color: #f2f2f2;
+    color: white;
 }
 
 .button3{
-padding:20px;
-font-size: 20px;
-margin-top:25px;
-
+    padding:20px;
+    font-size: 20px;
+    margin-top:25px;
 }
 
 {% endblock %}
 {% block body %}
 
-<html>
-    <head>
-           
-
-   </head>
-   <body>
+<body>
        <div class="div">Car Service</div>
+        {% for key in Car %}
+            Service for this plateNamber:
+            {{ key.plateNumber }}
+             {% endfor %}
  <table>
   <tr>
     <th>Id</th>
@@ -120,18 +96,8 @@ margin-top:25px;
   </tr>
   {% endfor %}
  </table>
-
  <button class="button button2 button3"><a href="/car/add">Add Car</a></button>
- 
- <button class="button button2 button3"><a href="/car/upload">Upload</a></button>
-
-
-
-
-
-   </body>
-   
-</html>
-
+ <button class="button button2 button3"><a href="/">Upload</a></button>
+</body>
 
 {% endblock %}
