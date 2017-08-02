@@ -1,0 +1,6 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+car:
+    path:     /car
+    defaults: { _controller: AppBundle:Car:car }

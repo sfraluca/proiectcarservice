@@ -1,0 +1,34 @@
+AppBundle\Entity\Car:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CarRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        plateNumber:
+            type: string
+            length: 255
+            column: plate_number
+        brand:
+            type: string
+            length: 255
+        model:
+            type: string
+            length: 255
+        year:
+            type: integer
+        color:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+    oneToMany:
+        carServices:
+            targetEntity: CarService
+            mappedBy: car

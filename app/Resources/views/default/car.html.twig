@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarService{% endblock %}
+{% block style %}
+
+table {
+    border-collapse: collapse;
+width: 90%;
+    margin-left:50px;
+}
+
+th, td {
+    text-align: left;
+    padding: 7px;
+    
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+th {
+    background-color: #af4c4c;
+    color: white;
+    
+}
+.button2:hover {
+
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+a:link, a:visited {
+   color:white;
+   text-decoration: none;
+}
+.button {
+    background-color: #af4c4c; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 3px 1px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+    border-radius:5px;
+    margin-left:25%;
+   
+
+    border-radius:10px;
+    margin-left:50px;
+
+    border-radius:10px;
+    margin-left:50px;
+
+    border-radius:10px;
+    margin-left:50px;
+
+}
+.div{
+text-align:center;
+font-size: 50px;
+font-family:Verdana;
+text-shadow: 2px 2px 5px red;
+padding:5px;
+margin-bottom:5px;
+color:#7a3535;
+}
+.button1{
+margin-left:2px;
+}
+.th{
+background-color: #f2f2f2;
+color: white;
+}
+
+.button3{
+padding:20px;
+font-size: 20px;
+margin-top:25px;
+
+}
+
+{% endblock %}
+{% block body %}
+
+<html>
+    <head>
+           
+
+   </head>
+   <body>
+       <div class="div">Car Service</div>
+ <table>
+  <tr>
+    <th>Id</th>
+    <th>PlateNumber</th> 
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Color</th>
+    <th>Type</th>
+    <th>Check</th>
+    <th>Add</th>
+    
+     {% for key in Car %}
+  <tr>
+    <td>{{ key.id }}</td>
+    <td>{{ key.plateNumber }}</td>
+    <td>{{ key.brand }}</td>
+    <td>{{ key.model }}</td>
+    <td>{{ key.year }}</td>
+    <td>{{ key.color }}</td>
+    <td>{{ key.type }}</td>
+    <th class="th"> <button class="button button2 button1"><a href="/car/service/?nr={{key.plateNumber}}">Check services</a></button></th>
+    <th class="th"> <button class="button button2 button1"><a href="/car/service/add/?nr={{key.plateNumber}}">Add Service</a></button></th> 
+  </tr>
+  {% endfor %}
+ </table>
+
+ <button class="button button2 button3"><a href="/car/add">Add Car</a></button>
+ 
+ <button class="button button2 button3"><a href="/car/upload">Upload</a></button>
+
+
+
+
+
+   </body>
+   
+</html>
+
+
+{% endblock %}
