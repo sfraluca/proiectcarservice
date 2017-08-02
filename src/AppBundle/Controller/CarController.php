@@ -135,7 +135,7 @@ class CarController extends Controller
                             ->getRepository('AppBundle:Image')
                             ->find($imageId);
         $imageName = $image->getImage();
-        $imagePath = 'D:\xampp\xampp\htdocs\p1\proiect\car-service-master\car-service-master\web\uploads\images\\' .$imageName;
+        $imagePath = 'D:\xampp\xampp\htdocs\car-service-master\web\uploads\images\\' .$imageName;
         
 //        $imageContent = file_get_contents($imagePath);
         
