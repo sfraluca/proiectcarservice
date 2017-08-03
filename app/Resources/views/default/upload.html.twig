@@ -3,6 +3,34 @@
     body{
         font-family:Arial;
     }
+     .button {
+        background-color: #af4c4c; /* Green */
+        border: none;
+        color: white;
+        padding: 7px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 3px 1px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        border-radius:10px;
+        margin-left:50px;
+        padding:15px;
+        font-size: 20px;
+        margin-top:50px;
+        margin-bottom:50px;
+        margin-left:45%;
+    }
+      a:link, a:visited {
+       color:white;
+       text-decoration: none;
+    }
+    .button:hover {
+        box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
     .parallax{
         background-image: url("white.jpg");
         background-attachment: fixed;
@@ -38,6 +66,15 @@
         text-align: justify;
         font-size:20px;
     }
+     .div5{
+           margin:10px 200px 10px 200px;
+           background-color: #f2f2f2;
+           padding:50px;
+           opacity:0.7;
+        }
+    .div5:hover{
+        opacity:0.9;
+    }
     {% endblock %}
     {% block body %}
         <body class="parallax">
@@ -54,5 +91,10 @@
     <br>
     {{ form_end(form) }}
         </div>
+         <div class="div5">
+     <p style="text-align: center; font-size: 20px;">Go to car list.</p>
+       <br> 
+  <button class="button"><a href="/car">Car List</a></button>
+   </div>
         </body>
     {% endblock %}

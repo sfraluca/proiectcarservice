@@ -4,8 +4,33 @@
 
     body{
         font-family:Arial;
-       
-   
+
+    }
+    .button1 {
+        background-color: #af4c4c; /* Green */
+        border: none;
+        color: white;
+        padding: 7px 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 3px 1px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        border-radius:5px;
+        margin-left:20%;
+    }
+    .button2:hover {
+        box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .button3{
+        padding:15px;
+        font-size: 20px;
+        margin-top:50px;
+        margin-bottom:50px;
+        margin-left:45%;
     }
     .parallax{
         background-image: url("../../white.jpg");
@@ -16,7 +41,7 @@
         min-height: 100%;
     }
     .div1{
-        margin:10px 200px 200px 200px;
+        margin:20px 150px 150px 150px;       
         text-align:center;
         background-color: #f2f2f2;
         padding:100px;
@@ -34,16 +59,34 @@
     .div3{
         text-align:center;
     }
+     .div4{
+           margin:150px 150px 150px 150px;       
+           background-color: #f2f2f2;
+           padding:50px;
+           opacity:0.7;
+        }
+    .div4:hover{
+        opacity:0.9;
+    }
+        a:link, a:visited {
+       color:white;
+       text-decoration: none;
+    }
 {% endblock %}
 
 {% block body %}
-     <body class="parallax">
+<body class="parallax">
     <div class="div2">Add a car</div>
     <div class="div3">This is a form.</div>
     <div class="div1">
 {{ form_start(form) }}
 {{ form_widget(form) }}
 {{ form_end(form) }}
- </div>
-  </body>
+    </div>
+ <div class="div4">
+     <p style="text-align: center; font-size: 20px;">Go back to car list.</p>
+       <br> 
+  <button class="button1 button2 button3"><a href="/car">Car List</a></button>
+   </div>
+</body>
 {% endblock %}

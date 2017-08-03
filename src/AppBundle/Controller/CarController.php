@@ -92,15 +92,13 @@ class CarController extends Controller
 
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
-           
             $file->move(
                 $this->getParameter('web'),
                 $fileName
             );
 
             $image->setImage($fileName);
-        
-           
+                  
             $em=$this->getDoctrine()->getManager();
             $em->persist($image);
             $em->flush();

@@ -24,6 +24,8 @@ class CarServiceController extends Controller {
                 ->getRepository('AppBundle:CarService')
                 ->findAllServicesByCarPlateNumber($carPlateNumber);
         return $this->render('default/carservice.html.twig', array('viewServices' => $carServices));
+        
+        
 
     }
 
