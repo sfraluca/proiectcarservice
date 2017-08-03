@@ -33,12 +33,12 @@ class CarController extends Controller
         public function addServiceAction(Request $request)
     {
         $car = new Car();
-        $car->setPlateNumber('Write a plate number');
-        $car->setBrand('Write a brand');
-        $car->setModel('Write a model');
-        $car->setYear('Write an year');
-        $car->setColor('Write a color');
-        $car->setType('Write a type');
+        $car->setPlateNumber(' Write a plate number ');
+        $car->setBrand(' Write a brand ');
+        $car->setModel(' Write a model ');
+        $car->setYear(' Write an year ');
+        $car->setColor(' Write a color ');
+        $car->setType(' Write a type ');
 
         $form = $this->createFormBuilder($car)
             ->add('plateNumber', TextType::class)
@@ -47,7 +47,7 @@ class CarController extends Controller
             ->add('year', TextType::class)
             ->add('color', TextType::class)
             ->add('type', TextType::class)
-            ->add('Submit', SubmitType::class, array('label' => 'Add Car'))
+            ->add('Submit', SubmitType::class, array('label' => ' Add Car'))
             ->getForm();
         
         $form->handleRequest($request);
@@ -118,20 +118,14 @@ class CarController extends Controller
      */
     public function checkAction(Request $request)
     {
-        $imageId =  $request->get('imageId');
-        
-        $client = new \GuzzleHttp\Client();
-       
-        $apiUrl = 'https://api.openalpr.com/v2/recognize?recognize_vehicle=0&country=eu&secret_key=sk_8b541c25e9b8b8051f8ba0f4';
-       
+        $imageId =  $request->get('imageId');        
+        $client = new \GuzzleHttp\Client();      
+        $apiUrl = 'https://api.openalpr.com/v2/recognize?recognize_vehicle=0&country=eu&secret_key=sk_8b541c25e9b8b8051f8ba0f4';      
         $image =  $this->getDoctrine()
                             ->getRepository('AppBundle:Image')
                             ->find($imageId);
         $imageName = $image->getImage();
         $imagePath = 'D:\xampp\xampp\htdocs\car-service-master\web\uploads\images\\' .$imageName;
-        
-
-        
         $res = $client->request('POST', $apiUrl, [
             'multipart' => [
                     [
@@ -142,7 +136,6 @@ class CarController extends Controller
             ]
         );
    
-
         $responseArray = json_decode($res->getBody(), true);
         $responseResultArray = $responseArray["results"][0];
         $plateNumber = $responseResultArray["plate"];

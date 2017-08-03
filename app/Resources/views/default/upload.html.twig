@@ -1,6 +1,58 @@
-{% extends 'base.html.twig' %}
-{% block body %}
-{{ form_start(form) }}
-{{ form_row(form.image) }}
-{{ form_end(form) }}
-{% endblock %}
+    {% extends 'base.html.twig' %}
+    {% block style %}
+    body{
+        font-family:Arial;
+    }
+    .parallax{
+        background-image: url("white.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100%;
+    
+    }
+    .div1{
+        margin:10px 200px 200px 200px;
+        text-align:center;
+        background-color: #f2f2f2;
+        padding:100px;
+        opacity:0.7;
+    }
+    .div1:hover{
+        opacity:0.9;
+    }
+    .div2{
+        text-align:center;
+        color:#af4c4c;
+        font-size:40px;
+        margin-bottom:20px;
+    }
+    .div3{
+        text-align:center;
+        margin:10px 200px 10px 200px;
+    }
+     .div4{
+        text-align:center;
+        margin:10px 200px 10px 200px;
+        text-align: justify;
+        font-size:20px;
+    }
+    {% endblock %}
+    {% block body %}
+        <body class="parallax">
+        <div class="div2">Welcome!</div>
+        <div class="div4">Car service book is an application that recognize plate number from your image.
+            It can show you your services and more information about your car. 
+            Don't waste your time and see how it works.</div>
+        <br>
+        <div class="div3">Choose an image to see your service.</div>
+        <div class="div1">
+    {{ form_start(form) }}
+    {{ form_row(form.image) }}
+    <br>
+    <br>
+    {{ form_end(form) }}
+        </div>
+        </body>
+    {% endblock %}

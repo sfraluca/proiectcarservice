@@ -16,7 +16,7 @@ class ImageType extends AbstractType
     {
         $builder
             
-            ->add('image', FileType::class, array('label' => 'Choose an image: '))
+            ->add('image', FileType::class, array('label' => 'Upload: '))
             ->add('save', SubmitType::class, array('label' => 'Submit'));
     }
 
