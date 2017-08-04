@@ -18,19 +18,20 @@ class CarController extends Controller
     /**
      * @Route("/car/", name="back")
      */
-    public function productAction(Request $request) {
+    public function carAction(Request $request) {
        
         $car = $this->getDoctrine()
                 ->getRepository('AppBundle:Car')
                 ->findAll();
 
         return $this->render('default/car.html.twig', array('Car' => $car));
+        
     }
 
-        /**
+       /**
        * @Route("/car/add")
        */
-        public function addServiceAction(Request $request)
+     public function addServiceAction(Request $request)
     {
         $car = new Car();
         $car->setPlateNumber(' Write a plate number ');

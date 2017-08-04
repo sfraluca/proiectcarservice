@@ -87,11 +87,13 @@
  <body class="parallax">
    <div class="div">Car Service</div>
     <br> 
- <div style="font-size:20px; margin-left: 50px;">See the services from your plate number.</div>
+ <div style="font-size:20px; margin-left: 50px;">See the services from your plate number.
+   
+ </div>
    <br> 
  <table >
   <tr>
-    <th>No</th>
+    
     <th>Title</th> 
     <th>Price</th>
     <th>Description</th>
@@ -99,7 +101,7 @@
    
    {% for key in viewServices %}
   <tr>
-    <td>{{ key.id }}</td>
+   
     <td>{{ key.title }}</td>
     <td>{{ key.price }}</td>
     <td class="ds">{{ key.description }}</td>
