@@ -1,0 +1,26 @@
+{
+  "name": "userproject",
+  "version": "1.0.0",
+  "description": "===",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "highcharts": "^6.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sfraluca@github.com/sfraluca/proiectcarservice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfraluca/proiectcarservice/issues"
+  },
+  "homepage": "https://github.com/sfraluca/proiectcarservice#readme"
+}

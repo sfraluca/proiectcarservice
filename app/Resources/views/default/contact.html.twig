@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+  
+    <body class="parallax">
+    <ul>
+         <li><a class="active" href="/">Home</a></li>
+         <li><a href="/car">CarList</a></li>
+         <li><a href="/car/add">Add Car</a></li>
+         <li><a href="/form">Contact</a></li>
+         <li><a class="logout" href="/logout">Logout</a></li>
+    </ul>
+   
+   
+        <div class="div1 div3">
+            <h2> Contact us</h2>
+            <br> <br> <br>
+                        {{form_start(form)}} 
+                        {{form_widget(form)}}
+                        {{form_end(form)}}
+         </div>
+
+    </body>
+{% endblock %}

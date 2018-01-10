@@ -1,100 +1,62 @@
     {% extends 'base.html.twig' %}
-    {% block style %}
-    body{
-        font-family:Arial;
-    }
-     .button {
-        background-color: #af4c4c; /* Green */
-        border: none;
-        color: white;
-        padding: 7px 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 3px 1px;
-        cursor: pointer;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-        border-radius:10px;
-        margin-left:50px;
-        padding:15px;
-        font-size: 20px;
-        margin-top:50px;
-        margin-bottom:50px;
-        margin-left:45%;
-    }
-      a:link, a:visited {
-       color:white;
-       text-decoration: none;
-    }
-    .button:hover {
-        box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-    .parallax{
-        background-image: url("white.jpg");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 100%;
-    
-    }
-    .div1{
-        margin:10px 200px 200px 200px;
-        text-align:center;
-        background-color: #f2f2f2;
-        padding:100px;
-        opacity:0.7;
-    }
-    .div1:hover{
-        opacity:0.9;
-    }
-    .div2{
-        text-align:center;
-        color:#af4c4c;
-        font-size:40px;
-        margin-bottom:20px;
-    }
-    .div3{
-        text-align:center;
-        margin:10px 200px 10px 200px;
-    }
-     .div4{
-        text-align:center;
-        margin:10px 200px 10px 200px;
-        text-align: justify;
-        font-size:20px;
-    }
-     .div5{
-           margin:10px 200px 150px 200px;
-           background-color: #f2f2f2;
-           padding:50px;
-           opacity:0.7;
-        }
-    .div5:hover{
-        opacity:0.9;
-    }
-    {% endblock %}
     {% block body %}
         <body class="parallax">
+            <ul>
+                <li><a class="active" href="/">Home</a></li>
+                <li><a href="/car">CarList</a></li>
+                <li><a href="/car/add">Add Car</a></li>
+                <li><a href="/form">Contact</a></li>
+                <li><a class="logout" href="/logout">Logout</a></li>
+            </ul>
         <div class="div2">Welcome!</div>
-        <div class="div4">Car service book is an application that recognize plate number from your image.
-            It can show you your services and more information about your car. 
-            Don't waste your time and see how it works.</div>
-        <br>
-        <div class="div3">Choose an image to see your service.</div>
-        <div class="div1">
-    {{ form_start(form) }}
-    {{ form_row(form.image) }}
-    <br>
-    <br>
-    {{ form_end(form) }}
+        <div class="div5 divchart divupload">
+        <p style="text-align: center; font-size: 20px;">
+         Service Auto is an application that can show you your services and more information about your car. 
+         Don't waste your time and see how it works.
+         <br> <br> <br> <br> 
+
+        <div class="row">
+            <div class="dashboardCharts column">
+                <div class="ui padded segment">
+                    {{ render(controller( 'AppBundle:Chart:NumberPlatebyTypeChart', { 'max': 3 } )) }}
+                </div>
+            </div>
         </div>
-         <div class="div5">
-     <p style="text-align: center; font-size: 20px;">Go to car list.</p>
-       <br> 
-  <button class="button"><a href="/car">Car List</a></button>
-   </div>
-        </body>
-    {% endblock %}
+        </div>
+       
+         {% for key in Categorie %}   
+            <button class="accordion">  {{ key.titlu }}</button>
+             <div class="panel">   
+                 <br>  
+                 {% for key in Produse %}                                      
+                    <p>{{ key.descriere }} / {{ key.pret }}</p>                     
+                 {% endfor %} 
+                 <br>                
+             </div>
+         {% endfor %}
+
+    <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        }
+    }
+    </script>
+</body>
+{% endblock %}
+{% block javascripts %} 
+    {{ parent() }}  
+    <!-- Charts js -->
+    <script src="/js/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+{% endblock %}

@@ -1,0 +1,19 @@
+AppBundle\Entity\Categorie:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CategorieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titlu:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+    oneToMany:
+            produse:
+                targetEntity: Produse
+                mappedBy: categorie

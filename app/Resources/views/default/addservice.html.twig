@@ -1,87 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block title %}AddServices{% endblock %}
-{% block style %}
-    body{
-        font-family:Arial;
-    }
-      a:link, a:visited {
-       color:white;
-       text-decoration: none;
-    }
-    .button {
-        background-color: #af4c4c; /* Green */
-        border: none;
-        color: white;
-        padding: 7px 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 3px 1px;
-        cursor: pointer;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-        border-radius:10px;
-        margin-left:50px;
-            padding:15px;
-        font-size: 20px;
-        margin-top:50px;
-        margin-bottom:50px;
-        margin-left:45%;
-    }
-    .button:hover {
-        box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-
-     .parallax{
-        background-image: url("/white.jpg");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 100%;
-    }
-    .div1{
-        margin:20px 150px 150px 150px;       
-        text-align:center;
-        background-color: #f2f2f2;
-        padding:100px;
-        opacity:0.7;
-    }
-     .div1:hover{
-        opacity:0.9;
-    }
-    .div2{
-        text-align:center;
-        color:#af4c4c;
-        font-size:40px;
-        margin-bottom:20px;
-    }
-    .div3{
-        text-align:center;
-    }
-    .div4{
-           margin:150px 150px 150px 150px;       
-           background-color: #f2f2f2;
-           padding:50px;
-           opacity:0.7;
-        }
-    .div4:hover{
-        opacity:0.9;
-    }
-{% endblock %}
 {% block body %}
+   
  <body class="parallax">
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/car">CarList</a></li>
+        <li><a href="/car/add">Add Car</a></li>
+        <li><a href="/form">Contact</a></li>
+        <li><a class="logout" href="/logout">Logout</a></li>
+    </ul>
+    <br>
     <div class="div2">Add a service</div>
-    <div class="div3">This is a form.</div>
-    <div class="div1">
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
- </div>
- <div class="div4"><p style="text-align: center; font-size: 20px;">Go back to car list.</p>
-       <br> 
-  <button class="button"><a href="/car" style="text-decoration:none;">Car List</a></button>
-   </div>
+   
+    <div class="div1 div3service"style="text-align:left;">
+        <h2>This is a form:</h2>
+        <br> <br> <br>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+         <input class="input"type="submit" value="Save">
+        {{ form_end(form) }}
+    </div>
+
  </body>
 {% endblock %}
