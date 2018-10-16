@@ -7,7 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Car;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-
+use AppBundle\Entity\Image;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use AppBundle\Form\ImageType;
+use GuzzleHttp\Client;
 
 class CarController extends Controller
 {
@@ -79,7 +82,26 @@ class CarController extends Controller
      */
       public function uploadAction(Request $request)
     {
-             
+        $image = new Image();
+        $form = $this->createForm(ImageType::class, $image);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+      
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $image->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('web'),
+                $fileName
+            );
+            $image->setImage($fileName);
+                  
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($image);
+            $em->flush();
+       
+           return $this->redirectToRoute('check', array('imageId'=>$image->getId()));
+        }
        
        $categorie = $this->getDoctrine()
                 ->getRepository('AppBundle:Categorie')
@@ -89,14 +111,42 @@ class CarController extends Controller
                 ->getRepository('AppBundle:Produse')
                 ->findAllProduseByCategorie($categorieTitlu);
    
-        return $this->render('default/upload.html.twig', array('Produse' => $produse, 'Categorie' => $categorie) );
+        return $this->render('default/upload.html.twig', array('Produse' => $produse, 'Categorie' => $categorie ,'form' => $form->createView()) );
         
     }
-
-
     
+    
+    
+    /**
+     * @Route("/car/check/{imageId}", name="check")
+     */
+    public function checkAction(Request $request)
+    {
+        $imageId =  $request->get('imageId');        
+        $client = new \GuzzleHttp\Client();      
+        $apiUrl = 'https://api.openalpr.com/v2/recognize?recognize_vehicle=0&country=eu&secret_key=sk_8b541c25e9b8b8051f8ba0f4';      
+        $image =  $this->getDoctrine()
+                            ->getRepository('AppBundle:Image')
+                            ->find($imageId);
+        $imageName = $image->getImage();
+        $imagePath = 'C:\Users\Sferle Raluca\Documents\work\myprojects\proiectcarservice\web\uploads\images\\' .$imageName;
+        $res = $client->request('POST', $apiUrl, [
+            'multipart' => [
+                    [
+                    'name' => 'image',
+                    'contents' => fopen($imagePath, 'r')
+                    ]
+                ]
+            ]
+        );
    
- 
+        $responseArray = json_decode($res->getBody(), true);
+        $responseResultArray = $responseArray["results"][0];
+        $plateNumber = $responseResultArray["plate"];
+        $url = "/car/service/?nr=$plateNumber";
+        return $this->redirect($url);
+    }
+
 
  }
         

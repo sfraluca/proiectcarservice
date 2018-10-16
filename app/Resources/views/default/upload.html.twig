@@ -23,7 +23,25 @@
             </div>
         </div>
         </div>
-       
+
+       <div class="div4">Car service book is an application that recognize plate number from your image.
+            It can show you your services and more information about your car. 
+            Don't waste your time and see how it works.</div>
+        <br>
+                <div class="div3">Choose an image to see your service.</div>
+                <div class="div1">
+            {{ form_start(form) }}
+            {{ form_row(form.image) }}
+            <br>
+            <br>
+            {{ form_end(form) }}
+                </div>
+                <div class="div5">
+            <p style="text-align: center; font-size: 20px;">Go to car list.</p>
+            <br> 
+        <button class="button"><a href="/car">Car List</a></button>
+        </div>
+
          {% for key in Categorie %}   
             <button class="accordion">  {{ key.titlu }}</button>
              <div class="panel">   
