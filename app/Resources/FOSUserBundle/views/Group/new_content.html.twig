@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, { 'action': path('fos_user_group_new'), 'attr': { 'class': 'fos_user_group_new' } }) }}
@@ -6,3 +7,13 @@
         <input type="submit" value="{{ 'group.new.submit'|trans }}" />
     </div>
 {{ form_end(form) }}
+=======
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, { 'action': path('fos_user_group_new'), 'attr': { 'class': 'fos_user_group_new' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'group.new.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+>>>>>>> 735da2f7d0d78d74e5846d5ee4c9e5fdbff52924

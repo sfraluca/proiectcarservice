@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'base.html.twig' %}
 {% trans_default_domain 'FOSUserBundle' %}
 {% block title %}CheckEmail{% endblock %}
@@ -11,3 +12,18 @@
        </div>
 </body>
 {% endblock fos_user_content %}
+=======
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block title %}CheckEmail{% endblock %}
+{% block fos_user_content %}
+    <body class="parallax">
+      <div class="login-container">
+            <h1>Request</h1><br>
+            <form>
+    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+     </form>
+       </div>
+</body>
+{% endblock fos_user_content %}
+>>>>>>> 735da2f7d0d78d74e5846d5ee4c9e5fdbff52924

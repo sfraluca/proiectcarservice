@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "@FOSUser/layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
@@ -7,3 +8,14 @@
 {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
 </p>
 {% endblock %}
+=======
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<p>
+{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+</p>
+{% endblock %}
+>>>>>>> 735da2f7d0d78d74e5846d5ee4c9e5fdbff52924
