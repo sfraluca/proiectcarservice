@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Car;
 use AppBundle\Entity\CarService;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -26,6 +27,7 @@ class CarServiceController extends Controller {
         return $this->render('default/carservice.html.twig', array('viewServices' => $carServices));
 
     }
+   
 
     /**
      * @Route("/car/service/add/", name="service")
@@ -33,17 +35,17 @@ class CarServiceController extends Controller {
     public function addServiceAction(Request $request) {
 
         $service = new CarService();
-        $service->setTitle('Write a title');
-        $service->setPrice('Write a price');
-        $service->setDescription('Write a description');
+        $service->setTitle('');
+        $service->setPrice('');
+        $service->setDescription('');
         $service->setServiceDate(new \DateTime('today'));
 
         $form = $this->createFormBuilder($service)
-                ->add('title', TextType::class)
-                ->add('price', TextType::class)
-                ->add('description', TextType::class)
-                ->add('serviceDate', DateType::class)
-                ->add('Submit', SubmitType::class, array('label' => 'Add Service'))
+                ->add('title', TextType::class, array('label'=> 'Title', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
+                ->add('price', TextType::class, array('label'=> 'Price', 'attr'=> array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px; ')))
+                ->add('description', TextareaType::class, array('label'=> 'Description', 'attr'=> array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
+                ->add('serviceDate', DateType::class, array('label'=> 'Service Date', 'attr'=> array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
+                
                 ->getForm();
 
         $form->handleRequest($request);
@@ -55,7 +57,7 @@ class CarServiceController extends Controller {
             $car = $this->getDoctrine()
                     ->getRepository('AppBundle:Car')
                     ->findOneByPlateNumber($carPlateNumber);
-            
+//            dump($car);exit;
             // Read form data
             $title = $form['title']->getData();
             $price = $form['price']->getData();

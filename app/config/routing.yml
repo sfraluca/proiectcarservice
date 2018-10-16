@@ -3,4 +3,6 @@ app:
     type: annotation
 car:
     path:     /car
-    defaults: { _controller: AppBundle:Car:car }
+    defaults: { _controller: AppBundle:Car:car }  
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,107 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 10, 2017, 1:46:35 PM
+    Author     : Raluca
+*/
+
+    body{
+        font-family:Arial;
+    }
+    .button1 {
+        background-color: #af4c4c; /* Green */
+        border: none;
+        color: white;
+        padding: 7px 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 3px 1px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        border-radius:5px;
+        margin-left:20%;
+    }
+    .button2:hover {
+        box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .button3{
+        padding:15px;
+        font-size: 20px;
+        margin-top:50px;
+        margin-bottom:50px;
+        margin-left:45%;
+    }
+    .parallax{
+        background-image: url("../../white.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100%;
+    }
+    .div1{
+        margin:20px 150px 150px 150px;       
+        text-align:center;
+        background-color: #f2f2f2;
+        padding:100px;
+        opacity:0.7;
+    }
+     .div1:hover{
+        opacity:0.9;
+    }
+    .div2{
+        text-align:center;
+        color:#af4c4c;
+        font-size:40px;
+        margin-bottom:20px;
+    }
+    .div3{
+        text-align:center;
+    }
+     .div4{
+           margin:150px 150px 150px 150px;       
+           background-color: #f2f2f2;
+           padding:50px;
+           opacity:0.7;
+        }
+    .div4:hover{
+        opacity:0.9;
+    }
+    a:link, a:visited {
+       color:white;
+       text-decoration: none;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #af4c4c;
+    
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #bf5654;
+    }
+    .logout
+    {
+        margin-left:950px;
+    }

@@ -1,0 +1,26 @@
+AppBundle\Entity\Produse:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ProduseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        descriere:
+            type: string
+            length: 255
+        pret:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+    manyToOne:
+            categorie:
+                targetEntity: Categorie
+                inversedBy: produse
+                joinColumn:
+                    name: titlu_id
+                    referencedColumnName: id
+    

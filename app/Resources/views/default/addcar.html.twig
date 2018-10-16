@@ -1,49 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block title %}AddCars{% endblock %}
-{% block style %}
-
-    body{
-        font-family:Arial;
-       
-   
-    }
-    .parallax{
-        background-image: url("../../white.jpg");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 100%;
-    }
-    .div1{
-        margin:10px 200px 200px 200px;
-        text-align:center;
-        background-color: #f2f2f2;
-        padding:100px;
-        opacity:0.7;
-    }
-     .div1:hover{
-        opacity:0.9;
-    }
-    .div2{
-        text-align:center;
-        color:#af4c4c;
-        font-size:40px;
-        margin-bottom:20px;
-    }
-    .div3{
-        text-align:center;
-    }
-{% endblock %}
-
 {% block body %}
-     <body class="parallax">
+
+<body class="parallax">
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/car">CarList</a></li>
+        <li><a href="/car/add">Add Car</a></li>
+        <li><a href="/form">Contact</a></li>
+        <li><a class="logout" href="/logout">Logout</a></li>
+    </ul>
+    <br>
     <div class="div2">Add a car</div>
-    <div class="div3">This is a form.</div>
-    <div class="div1">
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
- </div>
-  </body>
+    
+    <div class="div1 div3car" style="text-align:left;">
+        <h2>This is a form:</h2>
+        <br>
+        <br>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input class="input"type="submit" value="Save">
+    {{ form_end(form) }}
+        </div>
+
+</body>
 {% endblock %}

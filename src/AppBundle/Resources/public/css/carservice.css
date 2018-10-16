@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 10, 2017, 1:43:11 PM
+    Author     : Raluca
+*/
+     body{
+        font-family:Arial;  
+    }
+     .parallax{
+        background-image: url("../../white.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100%;
+    }
+
+    a:link, a:visited {
+       color:white;
+       text-decoration: none;
+    }
+    table {
+        border-collapse: collapse;
+        width: 90%;
+        margin-left:50px;
+        
+    }
+    th, td {
+        text-align: left;
+        padding: 50px;  
+    }
+
+    tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #af4c4c;
+        color: white;  
+    }
+  
+    .ds{
+        width:60%;
+    }
+    .div{
+        text-align:center;
+        font-size: 50px;
+        font-family:Verdana;
+        text-shadow: 2px 2px 5px red;
+        padding:5px;
+        margin-bottom:5px;
+        color:#7a3535;
+    }
+    .div1{
+        margin:150px 150px 150px 150px;        
+        background-color: #f2f2f2;
+        padding:100px;
+        opacity:0.7;
+    }
+    .div1:hover{
+        opacity:0.9;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #af4c4c;
+    
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #bf5654;
+    }
+    
+    .logout{
+        margin-left:950px;
+    }

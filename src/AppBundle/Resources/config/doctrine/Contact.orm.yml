@@ -1,0 +1,24 @@
+AppBundle\Entity\Contact:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ContactRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        subject:
+            type: string
+            length: 255
+        message:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

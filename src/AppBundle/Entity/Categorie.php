@@ -3,9 +3,9 @@
 namespace AppBundle\Entity;
 
 /**
- * Image
+ * Categorie
  */
-class Image
+class Categorie
 {
     /**
      * @var int
@@ -15,7 +15,7 @@ class Image
     /**
      * @var string
      */
-    private $image;
+    private $titlu;
 
 
     /**
@@ -29,27 +29,33 @@ class Image
     }
 
     /**
-     * Set image
+     * Set titlu
      *
-     * @param string $image
+     * @param string $titlu
      *
-     * @return Image
+     * @return Categorie
      */
-    public function setImage($image)
+    public function setTitlu($titlu)
     {
-        $this->image = $image;
+        $this->titlu = $titlu;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get titlu
      *
      * @return string
      */
-    public function getImage()
+    public function getTitlu()
     {
-        return $this->image;
+        return $this->titlu;
+    }
+    private $produse;
+
+    public function __construct()
+    {
+        $this->produse = new ArrayCollection();
     }
 }
 
