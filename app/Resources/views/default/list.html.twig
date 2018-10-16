@@ -1,0 +1,50 @@
+    {% extends 'base.html.twig' %}
+    {% block body %}
+        <body class="parallax">
+            <ul>
+                <li><a class="active" href="/">Home</a></li>
+                <li><a href="/car">CarList</a></li>
+                <li><a href="/car/add">Add Car</a></li>
+                <li><a href="/upload">Upload Image</a></li>
+                <li><a href="/list">List Products</a></li>
+                <li><a href="/form">Contact</a></li>
+                <li><a class="logout" href="/logout">Logout</a></li>
+            </ul>
+
+            <br>
+         {% for key in Categorie %}   
+            <button class="accordion">  {{ key.titlu }}</button>
+             <div class="panel">   
+                 <br>  
+                 {% for key in Produse %}                                      
+                    <p>{{ key.descriere }} / {{ key.pret }}</p>                     
+                 {% endfor %} 
+                 <br>                
+             </div>
+         {% endfor %}
+
+    <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        }
+    }
+    </script>
+</body>
+{% endblock %}
+{% block javascripts %} 
+    {{ parent() }}  
+    <!-- Charts js -->
+    <script src="/js/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+{% endblock %}

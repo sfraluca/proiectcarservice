@@ -80,7 +80,34 @@ class CarController extends Controller
     /**
      * @Route("/")
      */
-      public function uploadAction(Request $request)
+      public function dashAction(Request $request)
+    {
+
+        return $this->render('default/dashboard.html.twig');
+        
+    }
+
+    /**
+     * @Route("/list")
+     */
+    public function listAction(Request $request)
+    {
+       $categorie = $this->getDoctrine()
+                ->getRepository('AppBundle:Categorie')
+                ->findAll();
+       $categorieTitlu = $request->query->get('title', 'Preturi REVIZII');
+       $produse = $this->getDoctrine()
+                ->getRepository('AppBundle:Produse')
+                ->findAllProduseByCategorie($categorieTitlu);
+   
+        return $this->render('default/list.html.twig', array('Produse' => $produse, 'Categorie' => $categorie ) );
+        
+    }
+
+    /**
+     * @Route("/upload")
+     */
+    public function imageAction(Request $request)
     {
         $image = new Image();
         $form = $this->createForm(ImageType::class, $image);
@@ -103,17 +130,12 @@ class CarController extends Controller
            return $this->redirectToRoute('check', array('imageId'=>$image->getId()));
         }
        
-       $categorie = $this->getDoctrine()
-                ->getRepository('AppBundle:Categorie')
-                ->findAll();
-       $categorieTitlu = $request->query->get('title', 'Preturi REVIZII');
-       $produse = $this->getDoctrine()
-                ->getRepository('AppBundle:Produse')
-                ->findAllProduseByCategorie($categorieTitlu);
-   
-        return $this->render('default/upload.html.twig', array('Produse' => $produse, 'Categorie' => $categorie ,'form' => $form->createView()) );
+      
+        return $this->render('default/upload.html.twig', array('form' => $form->createView()) );
         
     }
+
+
     
     
     
