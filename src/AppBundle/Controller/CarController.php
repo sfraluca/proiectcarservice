@@ -28,10 +28,10 @@ class CarController extends Controller
         
     }
 
-       /**
-       * @Route("/car/add")
-       */
-     public function addServiceAction(Request $request)
+    /**
+     * @Route("/car/add")
+     */
+    public function addServiceAction(Request $request)
     {
         $car = new Car();
         $car->setPlateNumber('');
@@ -48,7 +48,6 @@ class CarController extends Controller
             ->add('year', TextType::class, array( 'label'=> 'Year', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
             ->add('color', TextType::class, array( 'label'=> 'Color', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
             ->add('type', TextType::class, array( 'label'=> 'Type', 'attr'=>array('class' => 'form-control','style' => 'margin-top:5px;margin-bottom:5px;')))
-            
             ->getForm();
         
         $form->handleRequest($request);
@@ -74,13 +73,14 @@ class CarController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('back');
-        }   
+        }
+
         return $this->render('default/addcar.html.twig', array('form' => $form->createView(),));
 }
     /**
      * @Route("/")
      */
-      public function dashAction(Request $request)
+    public function dashAction(Request $request)
     {
 
         return $this->render('default/dashboard.html.twig');
@@ -135,10 +135,6 @@ class CarController extends Controller
         
     }
 
-
-    
-    
-    
     /**
      * @Route("/car/check/{imageId}", name="check")
      */
@@ -168,7 +164,6 @@ class CarController extends Controller
         $url = "/car/service/?nr=$plateNumber";
         return $this->redirect($url);
     }
-
 
  }
         
