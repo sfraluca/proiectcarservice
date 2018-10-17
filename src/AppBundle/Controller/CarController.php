@@ -42,12 +42,12 @@ class CarController extends Controller
         $car->setType('');
 
         $form = $this->createFormBuilder($car)
-            ->add('plateNumber', TextType::class, array('label'=> 'PlateNumber', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
-            ->add('brand', TextType::class, array( 'label'=> 'Brand', 'attr'=>array('class' => 'form-control','style' => 'margin-top:5px;margin-bottom:5px;')))
-            ->add('model', TextType::class, array( 'label'=> 'Model', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
-            ->add('year', TextType::class, array( 'label'=> 'Year', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
-            ->add('color', TextType::class, array( 'label'=> 'Color', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
-            ->add('type', TextType::class, array( 'label'=> 'Type', 'attr'=>array('class' => 'form-control','style' => 'margin-top:5px;margin-bottom:5px;')))
+            ->add('plateNumber', TextType::class, array('label'=> 'PlateNumber', 'attr'=>array('class' => 'form-control')))
+            ->add('brand', TextType::class, array( 'label'=> 'Brand', 'attr'=>array('class' => 'form-control')))
+            ->add('model', TextType::class, array( 'label'=> 'Model', 'attr'=>array('class' => 'form-control')))
+            ->add('year', TextType::class, array( 'label'=> 'Year', 'attr'=>array('class' => 'form-control')))
+            ->add('color', TextType::class, array( 'label'=> 'Color', 'attr'=>array('class' => 'form-control')))
+            ->add('type', TextType::class, array( 'label'=> 'Type', 'attr'=>array('class' => 'form-control')))
             ->getForm();
         
         $form->handleRequest($request);

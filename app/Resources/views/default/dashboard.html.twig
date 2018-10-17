@@ -1,28 +1,51 @@
     {% extends 'base.html.twig' %}
     {% block body %}
         <body class="parallax">
-            <ul>
-                <li><a class="active" href="/">Home</a></li>
-                <li><a href="/car">CarList</a></li>
-                <li><a href="/car/add">Add Car</a></li>
-                <li><a href="/upload">Upload Image</a></li>
-                <li><a href="/list">List Products</a></li>
-                {# <li><a href="/form">Contact</a></li> #}
-                <li><a class="logout" href="/logout">Logout</a></li>
-            </ul>
-        <div class="div2">Welcome!</div>
-        <div class="div5 divchart divupload">
-        <p style="text-align: center; font-size: 20px;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Service Auto</a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Car</a>
+        <ul class="dropdown-menu">
+          <li><a href="/car">CarList</a></li>
+          <li><a href="/car/add">Add Car</a></li>
+          <li><a href="/upload">Upload Image</a></li>
+        </ul>
+      </li>
+      <li><a href="/list">List Products</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+        <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+       
+        <h1 class="text-center">Welcome!</h1>
+        <div >
+       <h4 class="text-justify">
          Service Auto is an application that can show you your services and more information about your car. 
          Don't waste your time and see how it works.
-         <br> <br> <br> <br> 
+         <br> <br> <br> <br> </h4>
 
         <div class="row">
-            <div class="dashboardCharts column">
-                <div class="ui padded segment">
+            <div class="container">
                     {{ render(controller( 'AppBundle:Chart:NumberPlatebyTypeChart', { 'max': 3 } )) }}
-                </div>
+                
             </div>
+        </div>
+        </div>
+        </div>
         </div>
         </div>
 

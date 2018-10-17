@@ -16,8 +16,8 @@ class ImageType extends AbstractType
     {
         $builder
             
-            ->add('image', FileType::class, array('label' => 'Upload: '))
-            ->add('save', SubmitType::class, array('label' => 'Submit'));
+            ->add('image', FileType::class, array('label' => 'Upload an image: ','attr'=>array('class' => 'btn btn-light')))
+            ->add('save', SubmitType::class, array('label' => 'Submit','attr'=>array('class' => 'btn btn-primary')));
     }
 
     public function configureOptions(OptionsResolver $resolver)
