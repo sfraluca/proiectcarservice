@@ -16,8 +16,6 @@ class CarRepository extends \Doctrine\ORM\EntityRepository
                 ->select('count(c.brand) as nr, c.brand')
                 ->groupBy('c.brand');
 
-
-
         $result = $query->orderBy('nr', 'DESC')->getQuery()->getResult();
 
         $max = 0;

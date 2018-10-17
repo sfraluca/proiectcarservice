@@ -28,7 +28,6 @@ class CarServiceController extends Controller {
 
     }
    
-
     /**
      * @Route("/car/service/add/", name="service")
      */
@@ -57,7 +56,7 @@ class CarServiceController extends Controller {
             $car = $this->getDoctrine()
                     ->getRepository('AppBundle:Car')
                     ->findOneByPlateNumber($carPlateNumber);
-//            dump($car);exit;
+
             // Read form data
             $title = $form['title']->getData();
             $price = $form['price']->getData();
