@@ -10,7 +10,7 @@ and open the template in the editor.
     body{
         font-family:Arial;
     }
-    button.accordion {
+    /* button.accordion {
         background-color: #eee;
         color: #444;
         cursor: pointer;
@@ -26,7 +26,7 @@ and open the template in the editor.
     }
     button.accordion.active, button.accordion:hover {
         background-color: #ccc;       
-    }
+    } */
     div.panel {
         padding: 0 30px;
         display: none;
@@ -35,34 +35,12 @@ and open the template in the editor.
         width: 80%;
         background-color: #f2f2f2;     
     }
-    .button {
-        background-color: #af4c4c; /* Green */
-        border: none;
-        color: white;
-        padding: 7px 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 3px 1px;
-        cursor: pointer;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-        border-radius:10px;
-        margin-left:50px;
-        padding:15px;
-        font-size: 20px;
-        margin-top:50px;
-        margin-bottom:50px;
-        margin-left:45%;
-    }
+    
     a:link, a:visited {
        color:white;
        text-decoration: none;
     }
-    .button:hover {
-        box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
+    
     .parallax{
         background-image: url("white.jpg");
         background-attachment: fixed;

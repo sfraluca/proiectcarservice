@@ -14,9 +14,10 @@ and open the template in the editor.
        color:white;
        text-decoration: none;
     }
-    .button {
-        background-color: #af4c4c; /* Green */
-        border: none;
+    /* .button {
+        background-color: #af4c4c;  */
+        /* Green */
+        /* border: none;
         color: white;
         padding: 7px 10px;
         text-align: center;
@@ -25,8 +26,8 @@ and open the template in the editor.
         font-size: 14px;
         margin: 3px 1px;
         cursor: pointer;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
+        -webkit-transition-duration: 0.4s; Safari */
+        /* transition-duration: 0.4s;
         border-radius:10px;
         margin-left:50px;
         padding:15px;
@@ -34,10 +35,10 @@ and open the template in the editor.
         margin-top:50px;
         margin-bottom:50px;
         margin-left:45%;
-    }
-    .button:hover {
+    } */
+    /* .button:hover {
         box-shadow: 0 8px 13px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
+    } */
 
      .parallax{
         background-image: url("/white.jpg");

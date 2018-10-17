@@ -40,10 +40,10 @@ class CarServiceController extends Controller {
         $service->setServiceDate(new \DateTime('today'));
 
         $form = $this->createFormBuilder($service)
-                ->add('title', TextType::class, array('label'=> 'Title', 'attr'=>array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
-                ->add('price', TextType::class, array('label'=> 'Price', 'attr'=> array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px; ')))
-                ->add('description', TextareaType::class, array('label'=> 'Description', 'attr'=> array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
-                ->add('serviceDate', DateType::class, array('label'=> 'Service Date', 'attr'=> array('class' => 'form-control', 'style' => 'margin-top:5px;margin-bottom:5px;')))
+                ->add('title', TextType::class, array('label'=> 'Title', 'attr'=>array('class' => 'form-control')))
+                ->add('price', TextType::class, array('label'=> 'Price', 'attr'=> array('class' => 'form-control')))
+                ->add('description', TextareaType::class, array('label'=> 'Description', 'attr'=> array('class' => 'form-control')))
+                ->add('serviceDate', DateType::class, array('label'=> 'Service Date', 'attr'=> array('class' => 'form-control')))
                 
                 ->getForm();
 

@@ -3,28 +3,54 @@
 
 {% block body %}
  <body class="parallax">
-    <ul>
-      <li><a class="active" href="/">Home</a></li>
-      <li><a href="/car">CarList</a></li>
-      <li><a href="/car/add">Add Car</a></li>
-      <li><a href="/upload">Upload Image</a></li>
-    <li><a href="/list">List Products</a></li>
-    {# <li><a href="/form">Contact</a></li> #}
-      <li><a class="logout" href="/logout" >Logout</a></li>
-    </ul>
-    <div class="div">Service Auto</div>
-    <br> 
-    <div style="font-size:20px; margin-left: 50px;">See the services from your plate number.
-    
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Service Auto</a>
     </div>
-    <br> 
-    <table class="carservice" >
-        <tr>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Car</a>
+        <ul class="dropdown-menu">
+          <li><a href="/car">CarList</a></li>
+          <li><a href="/car/add">Add Car</a></li>
+          <li><a href="/upload">Upload Image</a></li>
+        </ul>
+      </li>
+      <li><a href="/list">List Products</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav><div class="container">
+        <div class="jumbotron jumbotron-fluid">
+        <h1 class="text-center">Service Auto</h1>
+        <div >
+       <h4 class="text-justify">
+        
+       
+        <div>See the services from your plate number.</div>
+        <div>Check services, add a new car and see the car you are watching for. </div>
+   <br>
+<div class="table-responsive">
+   <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+    <thead>
+ 
+     <tr>
             <th>Title</th> 
             <th>Price</th>
             <th>Description</th>
             <th>Service Date</th>
         </tr>
+    </thead>
+  <tbody>
+
             {% for key in viewServices %}
         <tr>
              <td>{{ key.title }}</td>
@@ -34,7 +60,15 @@
         </tr>
 
             {% endfor %}
+   
+    
+  </tbody>
 
-    </table>   
+    </table>
+  </div>
+ <br> 
+ </div>
+</div> 
+ 
 </body>
 {% endblock %}
