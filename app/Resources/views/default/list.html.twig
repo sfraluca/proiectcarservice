@@ -31,27 +31,28 @@
     <div class="container">
     <div class="jumbotron jumbotron-fluid">
 
-        <div id="accordion">
-            {% for key in Categorie %} 
-                <div class="card">
-                <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            {{ key.titlu }}</button>
-            </h5>
-            </div>
+    <div >
+    <div class="card">
+                                 
+        {% for key in Categorie %} 
+            <div class="card-header" id="headingOne">
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-            {% for key in Produse %}                                      
-            <div class="card-body">{{ key.descriere }} / {{ key.pret }}</div>                     
-            {% endfor %} 
-            </div>
-            </div>
+                <h4>{{ key.titlu }}</h4>
+            <div>
+                <div class="card-body">
+                    {% for key in Produse %} 
+                        <div class="row">
+                            <div class="col">{{ key.descriere }}</div>
+                            <div class="col">{{ key.pret }}</div>   
+                        </div>          
+                    {% endfor %}
+                    </div>
+                </div>
             </div>
         {% endfor %}
-    </div>
 
+    </div>
+    </div>
 
     </div>
     </div>
