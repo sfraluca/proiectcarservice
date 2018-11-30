@@ -1,86 +1,85 @@
-    {% extends 'base.html.twig' %}
-    {% block body %}
-        <body class="parallax">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Service Auto</a>
-    </div>
+{% extends 'base.html.twig' %}
+{% block body %}
+<body class="parallax">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="/">Service Auto</a>
+        </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Car</a>
-        <ul class="dropdown-menu">
-          <li><a href="/car">CarList</a></li>
-          <li><a href="/car/add">Add Car</a></li>
-          <li><a href="/upload">Upload Image</a></li>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Car</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/car">CarList</a></li>
+                    <li><a href="/car/add">Add Car</a></li>
+                    <li><a href="/upload">Upload Image</a></li>
+                </ul>
+        </li>
+        <li><a href="/list">List Products</a></li>
         </ul>
-      </li>
-      <li><a href="/list">List Products</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-    </ul>
-  </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
 </nav>
 
-<div class="container">
-        <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <div class="jumbotron jumbotron-fluid">
 
-
-
-<div id="accordion">
-    {% for key in Categorie %} 
+    <div >
     <div class="card">
-        <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                {{ key.titlu }}</button>
-        </h5>
-        </div>
+                                 
+        {% for key in Categorie %} 
+            <div class="card-header" id="headingOne">
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-            {% for key in Produse %}                                      
-                <div class="card-body">{{ key.descriere }} / {{ key.pret }}</div>                     
-            {% endfor %} 
+                <h4>{{ key.titlu }}</h4>
+            <div>
+                <div class="card-body">
+                    {% for key in Produse %} 
+                        <div class="row">
+                            <div class="col">{{ key.descriere }}</div>
+                            <div class="col">{{ key.pret }}</div>   
+                        </div>          
+                    {% endfor %}
+                    </div>
+                </div>
             </div>
-        </div>
+        {% endfor %}
+
     </div>
-         {% endfor %}
-</div>
+    </div>
 
-  
-  </div>
-</div>
+    </div>
+    </div>
 
- 
-    <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        }
-    }
-    </script>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].onclick = function(){
+this.classList.toggle("active");
+var panel = this.nextElementSibling;
+if (panel.style.display === "block") {
+panel.style.display = "none";
+} else {
+panel.style.display = "block";
+}
+}
+}
+</script>
 </body>
 {% endblock %}
 {% block javascripts %} 
-    {{ parent() }}  
-    <!-- Charts js -->
-    <script src="/js/chart.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+{{ parent() }}  
+<!-- Charts js -->
+<script src="/js/chart.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 {% endblock %}

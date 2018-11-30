@@ -99,7 +99,7 @@ class CarController extends Controller
        $produse = $this->getDoctrine()
                 ->getRepository('AppBundle:Produse')
                 ->findAllProduseByCategorie($categorieTitlu);
-   
+
         return $this->render('default/list.html.twig', array('Produse' => $produse, 'Categorie' => $categorie ) );
         
     }
